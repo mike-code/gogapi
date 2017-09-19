@@ -8,18 +8,18 @@ defined('APP_PATH') || define('APP_PATH', BASE_PATH . '/app');
 
 return new \Phalcon\Config([
     'database' => [
-        'adapter'    => 'Mysql',
-        'host'       => 'localhost',
-        'username'   => 'root',
-        'password'   => '',
-        'dbname'     => 'test',
-        'charset'    => 'utf8',
+        'adapter'    => 'Postgresql',
+        'host'       => 'pgsql',
+        'username'   => 'gog',
+        'password'   => 'ITookanArrowintheKnee',
+        'dbname'     => 'gog'
     ],
 
     'application' => [
-        'modelsDir'      => APP_PATH . '/models/',
-        'migrationsDir'  => APP_PATH . '/migrations/',
-        'viewsDir'       => APP_PATH . '/views/',
-        'baseUri'        => '/src/',
+        'modelsDir'       => APP_PATH . '/models/',
+        'controllersDir'  => APP_PATH . '/controllers/',
+        'migrationsDir'   => APP_PATH . '/migrations/',
+        'viewsDir'        => APP_PATH . '/views/',
+        'baseUri'         => '/src/',
     ]
 ]);
