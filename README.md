@@ -88,9 +88,21 @@ Additional parameters
     GET /cart[?format=xml]
     
 
+## Response codes
+
+* 200 - OK
+* 400 - when request input parameters (ie POST data) are invalid
+* 401 - ie when trying to add product to cart that has not been initialized
+* 404 - ie when product was not found in the database by given ID
+* 405 - when trying to call wrong HTTP method on some resounce
+* 422 - ie when trying to pass incorrect entity such as page number as string
+
+Additionally JSON responses come with `status` key which can be either `success` or `error`
+
 ## Tests
 
 (In progress) API tests will be written in Newman/Postman as a tool of choice to test APIs.
+
 
 
     
