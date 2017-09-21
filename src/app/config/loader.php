@@ -7,7 +7,8 @@ $loader = new \Phalcon\Loader();
 
 $loader->registerNamespaces(
     [
-        'Store' => $config->application->modelsDir
+        'Store' => $config->application->modelsDir,
+        'Logic' => $config->application->logicDir
     ]
 );
 

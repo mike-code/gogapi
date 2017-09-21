@@ -1,41 +1,35 @@
 <?php
-
-
 /**
  * Local variables
  * @var \Phalcon\Mvc\Micro $app
  */
 
-/**
- * Add your routes here
- */
-$app->get('/', function () {
-    echo $this['view']->render('index');
-});
-
-$app->map('/product[/]?{id:\d*}?',
-    function($id) use ($app)
+$di->set(
+    'handler',
+    function () use ($app)
     {
-        $id = filter_var($id, \FILTER_VALIDATE_INT);
+        $handlerType = $app->request->get('format') ?? 'json';
+        $handler = null;
 
-        $products = new \ProductsController();
+        switch ($handlerType)
+        {
+            case 'xml':
+                $handler = new \Logic\Response\Handler\Xml();
+                break;
+            case 'json':
+            default:
+                $handler = new \Logic\Response\Handler\Json();
+                break;
+        }
 
-        if(is_int($id))
-        {
-            $app->request->isGet() and $products->get($id);
-        }
-        else
-        {
-            $app->request->isGet() and $products->list();
-        }
+        return $handler;
     }
-)->via(['GET', 'POST', 'PUT', 'DELETE']);
-
+);
 
 /**
  * Not found handler
  */
-$app->notFound(function () use($app) {
-    $app->response->setStatusCode(404, "Not Found")->sendHeaders();
-    echo $app['view']->render('404');
+$app->notFound(function () use ($app)
+{
+    $app->response->setStatusCode(400)->sendHeaders();
 });

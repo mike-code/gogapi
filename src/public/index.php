@@ -19,15 +19,9 @@ try
 
     /**
      * The FactoryDefault Dependency Injector automatically registers the services that
-     * provide a full stack framework. These default services can be overidden with custom ones.
+     * provide a full stack framework.
      */
     $di = new FactoryDefault();
-
-
-    /**
-     * Include Routers
-     */
-    // include APP_PATH . '/config/router.php';
 
     /**
      * Include Services
@@ -45,6 +39,11 @@ try
     include APP_PATH . '/config/loader.php';
 
     /**
+     * Include composer autoloader
+     */
+    require BASE_PATH . '/vendor/autoload.php';
+
+    /**
      * Starting the application
      * Assign service locator to the application
      */
@@ -54,6 +53,11 @@ try
      * Include Application
      */
     include APP_PATH . '/app.php';
+
+    /**
+     * Include Routes
+     */
+    include APP_PATH . '/routes.php';
 
     /**
      * Handle the request

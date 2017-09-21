@@ -77,4 +77,20 @@ class Products extends \Phalcon\Mvc\Model
         return parent::findFirst($parameters);
     }
 
+    /**
+     * Returns Product as array of values
+     *
+     * @return array
+     */
+    public function getData(): array
+    {
+        return
+        [
+            'id'            => (int) $this->id,
+            'title'         => $this->title,
+            'price'         => (float) $this->price,
+            'currency_code' => $this->currency,
+            'currency_name' => $this->currencies->name
+        ];
+    }
 }

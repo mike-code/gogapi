@@ -18,9 +18,15 @@ CREATE TABLE public.products
 CREATE UNIQUE INDEX products_id_uindex ON public.products (id);
 
 INSERT INTO public.currencies (code, name) VALUES ('USD', 'United States Dollar');
+INSERT INTO public.currencies (code, name) VALUES ('EUR', 'Euro');
+INSERT INTO public.currencies (code, name) VALUES ('PLN', 'Polish Złoty');
 
-INSERT INTO public.products (title, price, currency) VALUES ('Fallout',        1.99, 'USD');
-INSERT INTO public.products (title, price, currency) VALUES ('Don''t Starve',  2.99, 'USD');
-INSERT INTO public.products (title, price, currency) VALUES ('Baldur''s Gate', 3.99, 'USD');
-INSERT INTO public.products (title, price, currency) VALUES ('Icewind Dale',   4.99, 'USD');
-INSERT INTO public.products (title, price, currency) VALUES ('Bloodborne',     5.99, 'USD');
+INSERT INTO public.products (title, price, currency) VALUES ('Fallout',                   1.99,  'USD');
+INSERT INTO public.products (title, price, currency) VALUES ('Don''t Starve',             2.99,  'USD');
+INSERT INTO public.products (title, price, currency) VALUES ('Baldur''s Gate',            3.99,  'USD');
+INSERT INTO public.products (title, price, currency) VALUES ('Icewind Dale',              4.99,  'USD');
+INSERT INTO public.products (title, price, currency) VALUES ('Bloodborne',                5.99,  'USD');
+INSERT INTO public.products (title, price, currency) VALUES ('Command and Conquer',       13.99, 'EUR');
+INSERT INTO public.products (title, price, currency) VALUES ('X-Out',                     7.50,  'PLN');
+INSERT INTO public.products (title, price, currency) VALUES ('The Settlers',              8.01,  'EUR');
+INSERT INTO public.products (title, price, currency) VALUES ('Heroes of Might and Magic', 0.99,  'USD');

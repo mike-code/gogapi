@@ -29,6 +29,12 @@ services:
       POSTGRES_PASSWORD: "ITookanArrowintheKnee"
       POSTGRES_USER: "gog"
 
+  composer:
+    image: library/composer
+    command: install
+    volumes:
+      - ./src:/app
+
   redis:
     image: redis
     ports:
