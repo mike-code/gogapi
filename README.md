@@ -63,7 +63,7 @@ Additional parameters
 * format (string) optional [xml|json]
 * start (int) optional defaults to 0 -- page number
 
-**Note:** Since the application is not fully restfull (level 2 out of 3 as I call it), the API does not return URL to the next page.
+**Note:** Since the application is not fully restful (level 2 out of 3 as I call it), the API does not return URL to the next page.
 
 
 ### Create cart
