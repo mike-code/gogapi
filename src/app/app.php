@@ -4,6 +4,10 @@
  * @var \Phalcon\Mvc\Micro $app
  */
 
+/**
+ * Inject response handler based on 'format' request parameter.
+ * The default format is application/json
+ */
 $di->set(
     'handler',
     function () use ($app)
@@ -31,5 +35,5 @@ $di->set(
  */
 $app->notFound(function () use ($app)
 {
-    $app->response->setStatusCode(400)->sendHeaders();
+    throw new \Logic\Exception\NotFoundException();
 });

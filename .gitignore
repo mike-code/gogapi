@@ -4,3 +4,4 @@
 .phalcon/
 vendor/
 *.lock
+*_log.txt
