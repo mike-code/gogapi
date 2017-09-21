@@ -45,6 +45,8 @@ class CartController extends Generic
      */
     public function create()
     {
+        if($this->isCreated()) return;
+
         $this->cache->save($this->cacheKey,
             [
                 'items' => array()

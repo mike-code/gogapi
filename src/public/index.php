@@ -68,23 +68,23 @@ try
     }
     catch(\Logic\Exception\BadRequestException $e)
     {
-        $app->response->setStatusCode(400)->sendHeaders();
+        $app->response->setStatusCode(400, 'BadRequest')->sendHeaders();
     }
     catch(\Logic\Exception\UnauthorizedException $e)
     {
-        $app->response->setStatusCode(401)->sendHeaders();
+        $app->response->setStatusCode(401, 'Unauthorized')->sendHeaders();
     }
     catch(\Logic\Exception\NotFoundException $e)
     {
-        $app->response->setStatusCode(404)->sendHeaders();
+        $app->response->setStatusCode(404, 'NotFound')->sendHeaders();
     }
     catch(\Logic\Exception\UnsupportedMethodException $e)
     {
-        $app->response->setStatusCode(405)->sendHeaders();
+        $app->response->setStatusCode(405, 'UnsupportedMethod')->sendHeaders();
     }
     catch(\Logic\Exception\UnprocessableEntityException $e)
     {
-        $app->response->setStatusCode(422)->sendHeaders();
+        $app->response->setStatusCode(422, 'UnprocessableEntity')->sendHeaders();
     }
     catch(\Exception $e)
     {

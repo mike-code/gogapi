@@ -1,0 +1,16 @@
+{
+  "id": "8807309f-14f7-01d1-fa72-9b11141246e1",
+  "name": "Gog API",
+  "values": [
+    {
+      "enabled": true,
+      "key": "host",
+      "type": "text",
+      "value": "cc.dev"
+    }
+  ],
+  "timestamp": 1506034266362,
+  "_postman_variable_scope": "environment",
+  "_postman_exported_at": "2017-09-21T22:56:33.640Z",
+  "_postman_exported_using": "Postman/5.2.0"
+}
