@@ -1,4 +1,4 @@
-# order-service-api
+# order-api
 
 The suggestion was to **over-engineer** this seemingly simple task, thus my goal was to comply but not **overkill**, while trying to put as much knowledge as I have within reasonable time frame. I have hopefully accomplished 2nd level of RESTfulness of my application.
 
