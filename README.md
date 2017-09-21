@@ -101,7 +101,17 @@ Additionally JSON responses come with `status` key which can be either `success`
 
 ## Tests
 
-(In progress) API tests will be written in Newman/Postman as a tool of choice to test APIs.
+API tests are written as Newman/Postman collections, as a tool of choice to test the API.
+In order to run the newman CLI, you must have npm (node package manager) installed.
+
+You must also set URL (host) in `newman-env.json` file under `host` key.
+
+Afterwards run the following
+    npm install -g newman
+    newman run newman-collection-test.json -e newman-env.json
+
+![NewmanCLI](https://i.imgur.com/cntiQ0w.png)
+
 
 
 
