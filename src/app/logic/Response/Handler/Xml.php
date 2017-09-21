@@ -18,7 +18,10 @@ class Xml extends AbstractHandler
      */
     public function getContentBody(): string
     {
-        return ArrayToXml::convert($this->content_body);
+        // Hack: Spatie's ArrayToXml has some problems with objects thus I'm flatting the array
+        $data = json_decode(json_encode($this->content_body), true);
+
+        return ArrayToXml::convert($data);
     }
 
     /**

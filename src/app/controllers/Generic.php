@@ -22,7 +22,7 @@ abstract class Generic extends \Phalcon\Mvc\Controller
     /**
      * Render response
      *
-     * @return void
+     * @return \Phalcon\Http\Response
      */
     protected function render(...$arguments)
     {
@@ -31,6 +31,8 @@ abstract class Generic extends \Phalcon\Mvc\Controller
         $this->response->setContentType($this->handler->getContentType());
         $this->response->setContent($this->handler->getContentBody());
         $this->response->send();
+
+        return $this->response;
     }
 
     /**
@@ -96,5 +98,15 @@ abstract class Generic extends \Phalcon\Mvc\Controller
     public function respondNotFound()
     {
         throw new \Logic\Exception\NotFoundException();
+    }
+
+    /**
+     * Halts all actions and sends a 401 Unauthorized response.
+     *
+     * @return void
+     */
+    public function respondUnauthorized()
+    {
+        throw new \Logic\Exception\UnauthorizedException();
     }
 }

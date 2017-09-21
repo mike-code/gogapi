@@ -70,6 +70,10 @@ try
     {
         $app->response->setStatusCode(400)->sendHeaders();
     }
+    catch(\Logic\Exception\UnauthorizedException $e)
+    {
+        $app->response->setStatusCode(401)->sendHeaders();
+    }
     catch(\Logic\Exception\NotFoundException $e)
     {
         $app->response->setStatusCode(404)->sendHeaders();

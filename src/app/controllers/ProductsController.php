@@ -11,7 +11,7 @@ class ProductsController extends Generic
      *     - id     - product ID
      *
      * @optional
-     *     none
+     *     - format  - response format (xml | json*)
      *
      * @method GET
      * @resource /product/:id
@@ -33,6 +33,7 @@ class ProductsController extends Generic
      *
      * @optional
      *     - start   - pagination number, starting from 0
+     *     - format  - response format (xml | json*)
      *
      * @method GET
      * @resource /product
@@ -67,7 +68,7 @@ class ProductsController extends Generic
     }
 
     /**
-     * Adds product
+     * Adds product to the database. Returns added product's database ID
      *
      * @required:
      *     - title      - product title
@@ -75,7 +76,7 @@ class ProductsController extends Generic
      *     - currency   - product currency code (must be a valid currency code)
      *
      * @optional
-     *     none
+     *     - format  - response format (xml | json*)
      *
      * @method POST
      * @resource /product
