@@ -30,3 +30,4 @@ INSERT INTO public.products (title, price, currency) VALUES ('Command and Conque
 INSERT INTO public.products (title, price, currency) VALUES ('X-Out',                     7.50,  'PLN');
 INSERT INTO public.products (title, price, currency) VALUES ('The Settlers',              8.01,  'EUR');
 INSERT INTO public.products (title, price, currency) VALUES ('Heroes of Might and Magic', 0.99,  'USD');
+INSERT INTO public.products (title, price, currency) VALUES ('Jazz Jackrabbit',           2.34,  'USD');
