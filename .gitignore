@@ -2,3 +2,6 @@
 /config/development/
 *.sublime*
 .phalcon/
+vendor/
+*.lock
+*_log.txt

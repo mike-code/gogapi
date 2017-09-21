@@ -6,25 +6,16 @@ use Phalcon\Mvc\Url as UrlResolver;
 /**
  * Shared configuration service
  */
-$di->setShared('config', function () {
+$di->setShared('config', function ()
+{
     return include APP_PATH . "/config/config.php";
-});
-
-/**
- * Sets the view component
- */
-$di->setShared('view', function () {
-    $config = $this->getConfig();
-
-    $view = new View();
-    $view->setViewsDir($config->application->viewsDir);
-    return $view;
 });
 
 /**
  * The URL component is used to generate all kind of urls in the application
  */
-$di->setShared('url', function () {
+$di->setShared('url', function ()
+{
     $config = $this->getConfig();
 
     $url = new UrlResolver();
@@ -35,7 +26,8 @@ $di->setShared('url', function () {
 /**
  * Database connection is created based in the parameters defined in the configuration file
  */
-$di->setShared('db', function () {
+$di->setShared('db', function ()
+{
     $config = $this->getConfig();
 
     $class = 'Phalcon\Db\Adapter\Pdo\\' . $config->database->adapter;
@@ -44,10 +36,11 @@ $di->setShared('db', function () {
         'username' => $config->database->username,
         'password' => $config->database->password,
         'dbname'   => $config->database->dbname,
-        'charset'  => $config->database->charset
+        'charset'  => ''
     ];
 
-    if ($config->database->adapter == 'Postgresql') {
+    if ($config->database->adapter == 'Postgresql')
+    {
         unset($params['charset']);
     }
 
@@ -56,3 +49,43 @@ $di->setShared('db', function () {
     return $connection;
 });
 
+/**
+ * Shared session service
+ */
+$di->setShared(
+    'session',
+    function ()
+    {
+        $session = new \Phalcon\Session\Adapter\Files();
+
+        $session->start();
+
+        return $session;
+    }
+);
+
+
+/**
+ * Shared cache service
+ */
+$di->setShared(
+    'cache',
+    function ()
+    {
+        $cache = new \Phalcon\Cache\Backend\Redis(
+            new \Phalcon\Cache\Frontend\Json(
+            [
+                'lifetime' => 3600, // 1 hour
+            ]),
+            [
+                'prefix'     => '_GOG_',
+                'host'       => 'redis',
+                'port'       => 6379,
+                'persistent' => false,
+                'index'      => 0,
+            ]
+        );
+
+        return $cache;
+    }
+);
